@@ -19,4 +19,5 @@ int main(){
     printf("%f\n", sum/i);
     fclose(file);
 
+    
 }
