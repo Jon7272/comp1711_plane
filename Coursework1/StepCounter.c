@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include "FitnessDataStruct.h"
+
 
 // Struct moved to header file
 
@@ -71,7 +73,8 @@ int main() {
     char temp_end_time[6];
     char temp_end_date[11];
 
-    int total = 0;
+    float total = 0;
+    
 
     while (1)
     {
@@ -184,10 +187,12 @@ int main() {
                     char time[6];
                     char steps[10];
                     tokeniseRecord(line_buffer, ",", date, time, steps);
-                    total = total + atoi(steps);
+                    total = total + atof(steps);
                 }
+                float mean = total / num_of_records;
+                int rounded_mean = round(mean);
 
-                printf("Mean step count: %d\n", total/ num_of_records);
+                printf("Mean step count: %d\n", rounded_mean);
                 break;
             
             case 'F':
